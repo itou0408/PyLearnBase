@@ -1,12 +1,12 @@
 import torch.nn as nn
-
+from config import model_params
 
 class TradingModel(nn.Module):
     def __init__(self):
         super(TradingModel, self).__init__()
-        self.fc1 = nn.Linear(1, 64)  # 価格情報が1次元
+        self.fc1 = nn.Linear(model_params['input_size'], model_params['hidden_size'])
         self.relu = nn.ReLU()
-        self.fc2 = nn.Linear(64, 1)  # 出力は買い(1)か売り(0)
+        self.fc2 = nn.Linear(model_params['hidden_size'], model_params['output_size'])
 
     def forward(self, x):
         x = self.fc1(x)

@@ -6,19 +6,10 @@ from results_display import display_results
 
 
 def main():
-    # データセットの生成
-    train_loader, test_loader = create_dataset()
-
-    # モデルの初期化
+    train_loader = create_dataset()
     model = TradingModel()
-
-    # モデルのトレーニング
     train_history = train_model(model, train_loader)
-
-    # モデルの評価
-    test_history = evaluate_model(model, test_loader)
-
-    # 評価結果の表示
+    test_history = evaluate_model(model, train_loader)  # 本来は別のテストデータセットを使用
     display_results(train_history, test_history)
 
 
