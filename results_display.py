@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 
 
 def display_results(train_history, test_history):
-    plt.figure(figsize=(12, 5))
+    plt.figure(figsize=(12, 6))
 
     plt.subplot(1, 2, 1)
     plt.plot(train_history['loss'], label='Train Loss')
@@ -12,8 +12,11 @@ def display_results(train_history, test_history):
     plt.legend()
 
     plt.subplot(1, 2, 2)
-    plt.bar(['Final Value'], [test_history['final_value']], color='orange')
-    plt.title('Final Trading Value')
-    plt.ylabel('Value')
+    plt.plot(test_history['price_history'], label='Price')
+    plt.plot(test_history['value_history'], label='Value', color='orange')
+    plt.title('Price and Total Value Over Time')
+    plt.xlabel('Day')
+    plt.ylabel('Value/Price')
+    plt.legend()
 
     plt.show()

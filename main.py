@@ -9,7 +9,7 @@ def main():
     train_loader = create_dataset()
     model = TradingModel()
     train_history = train_model(model, train_loader)
-    test_history = evaluate_model(model, train_loader)  # 本来は別のテストデータセットを使用
+    test_history = evaluate_model(model, train_loader)
     display_results(train_history, test_history)
 
 
